@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //IBOutlets allow me to refenrece a UI element
+    @IBOutlet weak var diceImageView1: UIImageView!
+    @IBOutlet weak var diceImageView2: UIImageView!
+    
+    let arrayOfDices = [ #imageLiteral(resourceName: "DiceOne") , #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree") , #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix") ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
 
-
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        diceImageView1.image = arrayOfDices.randomElement()
+        diceImageView2.image = arrayOfDices.randomElement()
+    }
+    
 }
 
